@@ -1,27 +1,12 @@
-package lt.viko.eif.gmauza.librarymanagementwscontractlast.models;
+package lt.viko.eif.gmauza.librarymanagementrest.models;
 
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "borrowing", propOrder = {
-    "borrowingId",
-    "borrowDate",
-    "returnDate",
-    "item"
-})
 public class Borrowing {
 
-    @XmlElement(name = "borrowing-id", required = true)
-    protected String borrowingId;
-    @XmlElement(name = "borrow-date", required = true)
+    protected int borrowingId;
     protected String borrowDate;
-    @XmlElement(name = "return-date", required = true)
     protected String returnDate;
-    @XmlElement(required = true)
     protected Item item;
 
     /**
@@ -29,10 +14,10 @@ public class Borrowing {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link int }
      *     
      */
-    public String getBorrowingId() {
+    public int getBorrowingId() {
         return borrowingId;
     }
 
@@ -41,10 +26,10 @@ public class Borrowing {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link int }
      *     
      */
-    public void setBorrowingId(String value) {
+    public void setBorrowingId(int value) {
         this.borrowingId = value;
     }
 

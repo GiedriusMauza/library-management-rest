@@ -1,35 +1,13 @@
-package lt.viko.eif.gmauza.librarymanagementwscontractlast.models;
+package lt.viko.eif.gmauza.librarymanagementrest.models;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "item", propOrder = {
-    "itemId",
-    "author",
-    "copiesNumber",
-    "productionYear",
-    "publisher",
-    "status",
-    "title"
-})
 public class Item {
 
-    @XmlElement(name = "item-id", required = true)
-    protected String itemId;
-    @XmlElement(required = true)
+    protected int itemId;
     protected String author;
-    @XmlElement(name = "copies-number", required = true)
     protected String copiesNumber;
-    @XmlElement(name = "production-year", required = true)
     protected String productionYear;
-    @XmlElement(required = true)
     protected String publisher;
-    @XmlElement(required = true)
     protected String status;
-    @XmlElement(required = true)
     protected String title;
 
     /**
@@ -37,10 +15,10 @@ public class Item {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link int }
      *     
      */
-    public String getItemId() {
+    public int getItemId() {
         return itemId;
     }
 
@@ -49,10 +27,10 @@ public class Item {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link int }
      *     
      */
-    public void setItemId(String value) {
+    public void setItemId(int value) {
         this.itemId = value;
     }
 

@@ -1,16 +1,8 @@
-package lt.viko.eif.gmauza.librarymanagementwscontractlast.models;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+package lt.viko.eif.gmauza.librarymanagementrest.models;
 
 import java.util.ArrayList;
 import java.util.List;
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "borrowings", propOrder = {
-    "borrowing"
-})
+
 public class Borrowings {
 
     protected List<Borrowing> borrowing;

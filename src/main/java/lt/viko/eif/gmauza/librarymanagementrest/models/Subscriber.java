@@ -1,35 +1,13 @@
-package lt.viko.eif.gmauza.librarymanagementwscontractlast.models;
+package lt.viko.eif.gmauza.librarymanagementrest.models;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "subscriber", propOrder = {
-    "subscriberId",
-    "subscriberName",
-    "subscriberLastName",
-    "address",
-    "email",
-    "phone",
-    "borrowings"
-})
 public class Subscriber {
 
-    @XmlElement(name = "subscriber-id", required = true)
-    protected String subscriberId;
-    @XmlElement(name = "subscriber-name", required = true)
+    protected int subscriberId;
     protected String subscriberName;
-    @XmlElement(name = "subscriber-last-name", required = true)
     protected String subscriberLastName;
-    @XmlElement(required = true)
     protected String address;
-    @XmlElement(required = true)
     protected String email;
-    @XmlElement(required = true)
     protected String phone;
-    @XmlElement(required = true)
     protected Borrowings borrowings;
 
     /**
@@ -37,10 +15,10 @@ public class Subscriber {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link int }
      *     
      */
-    public String getSubscriberId() {
+    public int getSubscriberId() {
         return subscriberId;
     }
 
@@ -49,10 +27,10 @@ public class Subscriber {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link int }
      *     
      */
-    public void setSubscriberId(String value) {
+    public void setSubscriberId(int value) {
         this.subscriberId = value;
     }
 

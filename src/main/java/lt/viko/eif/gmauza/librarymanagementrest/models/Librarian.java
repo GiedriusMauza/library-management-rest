@@ -1,29 +1,11 @@
-package lt.viko.eif.gmauza.librarymanagementwscontractlast.models;
+package lt.viko.eif.gmauza.librarymanagementrest.models;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "librarian", propOrder = {
-    "librarianId",
-    "librarianEmail",
-    "librarianName",
-    "lastName",
-    "phoneNumber"
-})
 public class Librarian {
 
-    @XmlElement(name = "librarian-id", required = true)
-    protected String librarianId;
-    @XmlElement(name = "librarian-email", required = true)
+    protected int librarianId;
     protected String librarianEmail;
-    @XmlElement(name = "librarian-name", required = true)
     protected String librarianName;
-    @XmlElement(name = "last-name", required = true)
     protected String lastName;
-    @XmlElement(required = true)
     protected String phoneNumber;
 
     /**
@@ -31,10 +13,10 @@ public class Librarian {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link int }
      *     
      */
-    public String getLibrarianId() {
+    public int getLibrarianId() {
         return librarianId;
     }
 
@@ -43,10 +25,10 @@ public class Librarian {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link int }
      *     
      */
-    public void setLibrarianId(String value) {
+    public void setLibrarianId(int value) {
         this.librarianId = value;
     }
 
