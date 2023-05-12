@@ -17,12 +17,27 @@ public class Subscribers {
     @Id @GeneratedValue
     private Long id;
 
+    public Subscribers(List<Subscriber> subscriber) {
+        this.subscriber = subscriber;
+    }
+
+    public Subscribers() {
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
     /**
      * Gets the value of the subscriber property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
+     * not a snapshot. Therefore, any modification you make to the
      * returned list will be present inside the Jakarta XML Binding object.
      * This is why there is not a <CODE>set</CODE> method for the subscriber property.
      * 
@@ -39,6 +54,7 @@ public class Subscribers {
      * 
      * 
      */
+
     public List<Subscriber> getSubscriber() {
         if (subscriber == null) {
             subscriber = new ArrayList<Subscriber>();
@@ -46,11 +62,5 @@ public class Subscribers {
         return this.subscriber;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public Long getId() {
-        return id;
-    }
 }

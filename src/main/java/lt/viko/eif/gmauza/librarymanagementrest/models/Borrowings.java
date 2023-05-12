@@ -19,6 +19,13 @@ public class Borrowings {
     @GeneratedValue
     private Long id;
 
+    public Borrowings(List<Borrowing> borrowing) {
+        this.borrowing = borrowing;
+    }
+
+    public Borrowings() {
+    }
+
     /**
      * Gets the value of the borrowing property.
      * 

@@ -1,7 +1,8 @@
-package lt.viko.eif.gmauza.librarymanagementrest;
+package lt.viko.eif.gmauza.librarymanagementrest.controllers;
 
 import java.util.List;
 
+import lt.viko.eif.gmauza.librarymanagementrest.LibraryNotFoundException;
 import lt.viko.eif.gmauza.librarymanagementrest.models.Library;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

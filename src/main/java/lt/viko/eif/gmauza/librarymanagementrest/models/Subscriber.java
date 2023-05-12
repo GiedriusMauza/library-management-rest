@@ -19,6 +19,18 @@ public class Subscriber {
     @OneToOne
     protected Borrowings borrowings;
 
+    public Subscriber(String subscriberName, String subscriberLastName, String address, String email, String phone, Borrowings borrowings) {
+        this.subscriberName = subscriberName;
+        this.subscriberLastName = subscriberLastName;
+        this.address = address;
+        this.email = email;
+        this.phone = phone;
+        this.borrowings = borrowings;
+    }
+
+    public Subscriber() {
+    }
+
     /**
      * Gets the value of the subscriberId property.
      * 

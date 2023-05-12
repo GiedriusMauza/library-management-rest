@@ -15,6 +15,16 @@ public class Librarian {
     protected String lastName;
     protected String phoneNumber;
 
+    public Librarian(String librarianEmail, String librarianName, String lastName, String phoneNumber) {
+        this.librarianEmail = librarianEmail;
+        this.librarianName = librarianName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Librarian() {
+    }
+
     /**
      * Gets the value of the librarianId property.
      * 

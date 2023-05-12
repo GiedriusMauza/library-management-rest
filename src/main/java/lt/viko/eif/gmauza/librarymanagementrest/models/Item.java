@@ -17,6 +17,18 @@ public class Item {
     protected String status;
     protected String title;
 
+    public Item(String author, String copiesNumber, String productionYear, String publisher, String status, String title) {
+        this.author = author;
+        this.copiesNumber = copiesNumber;
+        this.productionYear = productionYear;
+        this.publisher = publisher;
+        this.status = status;
+        this.title = title;
+    }
+
+    public Item() {
+    }
+
     /**
      * Gets the value of the itemId property.
      * 

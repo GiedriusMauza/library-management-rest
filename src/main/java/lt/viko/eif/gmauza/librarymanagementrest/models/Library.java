@@ -9,8 +9,8 @@ public class Library {
 
     @Id @GeneratedValue
     private Long id;
-    private String libraryAddress;
     private String libraryName;
+    private String libraryAddress;
     private String workHours;
 
     @OneToOne
@@ -19,7 +19,13 @@ public class Library {
     @OneToOne
     private Subscribers subscribers;
 
-
+    public Library(String libraryName, String libraryAddress, String workHours, Librarian librarian, Subscribers subscribers) {
+        this.libraryName = libraryName;
+        this.libraryAddress = libraryAddress;
+        this.workHours = workHours;
+        this.librarian = librarian;
+        this.subscribers = subscribers;
+    }
 
     public Library(String libraryName, String libraryAddress, String workHours) {
         this.libraryName = libraryName;

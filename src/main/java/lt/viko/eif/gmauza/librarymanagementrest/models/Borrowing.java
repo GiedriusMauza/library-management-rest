@@ -17,6 +17,15 @@ public class Borrowing {
     @OneToOne
     protected Item item;
 
+    public Borrowing(String borrowDate, String returnDate, Item item) {
+        this.borrowDate = borrowDate;
+        this.returnDate = returnDate;
+        this.item = item;
+    }
+
+    public Borrowing() {
+    }
+
     /**
      * Gets the value of the borrowingId property.
      * 
