@@ -1,9 +1,12 @@
 package lt.viko.eif.gmauza.librarymanagementrest.controllers;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import lt.viko.eif.gmauza.librarymanagementrest.LibraryNotFoundException;
 import lt.viko.eif.gmauza.librarymanagementrest.models.Library;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,23 +15,31 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
+
 @RestController
 public class LibraryController {
 
     private final LibraryRepository repository;
+    private final LibraryModelAssembler assembler;
 
-    LibraryController(LibraryRepository repository) {
+    LibraryController(LibraryRepository repository, LibraryModelAssembler assembler) {
         this.repository = repository;
+        this.assembler = assembler;
     }
 
-
-    // Aggregate root
-    // tag::get-aggregate-root[]
     @GetMapping("/libraries")
-    List<Library> all() {
-        return repository.findAll();
+    CollectionModel<EntityModel<Library>> all() {
+
+        List<EntityModel<Library>> libraries = repository.findAll().stream()
+                .map(assembler::toModel) //
+                .collect(Collectors.toList());
+
+        return CollectionModel.of(libraries, linkTo(methodOn(LibraryController.class).all()).withSelfRel());
     }
-    // end::get-aggregate-root[]
+
 
     @PostMapping("/libraries")
     Library newLibrary(@RequestBody Library newLibrary) {
@@ -38,10 +49,13 @@ public class LibraryController {
     // Single item
 
     @GetMapping("/libraries/{id}")
-    Library one(@PathVariable Long id) {
+    EntityModel<Library> one(@PathVariable Long id) {
 
-        return repository.findById(id)
+        Library library = repository.findById(id) //
                 .orElseThrow(() -> new LibraryNotFoundException(id));
+
+        return assembler.toModel(library);
+
     }
 
     @PutMapping("/libraries/{id}")
@@ -55,7 +69,7 @@ public class LibraryController {
                     return repository.save(Library);
                 })
                 .orElseGet(() -> {
-                    newLibrary.setid(id);
+                    newLibrary.setId(id);
                     return repository.save(newLibrary);
                 });
     }

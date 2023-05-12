@@ -7,18 +7,26 @@ import java.util.Objects;
 @Entity
 public class Library {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
     private String libraryName;
     private String libraryAddress;
     private String workHours;
-
     @OneToOne
     private Librarian librarian;
-
     @OneToOne
     private Subscribers subscribers;
 
+    /**
+     * Constructor for a Library object with a librarian and subscribers.
+     *
+     * @param libraryName    The name of the library.
+     * @param libraryAddress The address of the library.
+     * @param workHours      The working hours of the library.
+     * @param librarian      The Librarian who manages the library.
+     * @param subscribers    The Subscribers who borrow books from the library.
+     */
     public Library(String libraryName, String libraryAddress, String workHours, Librarian librarian, Subscribers subscribers) {
         this.libraryName = libraryName;
         this.libraryAddress = libraryAddress;
@@ -27,11 +35,22 @@ public class Library {
         this.subscribers = subscribers;
     }
 
+    /**
+     * Constructor for a Library object without a librarian or subscribers.
+     *
+     * @param libraryName    The name of the library.
+     * @param libraryAddress The address of the library.
+     * @param workHours      The working hours of the library.
+     */
     public Library(String libraryName, String libraryAddress, String workHours) {
         this.libraryName = libraryName;
         this.libraryAddress = libraryAddress;
         this.workHours = workHours;
     }
+
+    /**
+     * Constructs a new Library object.
+     */
     public Library() {
     }
 
@@ -41,7 +60,7 @@ public class Library {
      * @return possible object is
      * {@link Long }
      */
-    public Long getid() {
+    public Long getId() {
         return id;
     }
 
@@ -51,7 +70,7 @@ public class Library {
      * @param value allowed object is
      *              {@link Long }
      */
-    public void setid(Long value) {
+    public void setId(Long value) {
         this.id = value;
     }
 
@@ -114,13 +133,12 @@ public class Library {
     public void setWorkHours(String value) {
         this.workHours = value;
     }
+
     /**
      * Gets the value of the librarian property.
      *
-     * @return
-     *     possible object is
-     *     {@link Librarian }
-     *
+     * @return possible object is
+     * {@link Librarian }
      */
     public Librarian getLibrarian() {
         return librarian;
@@ -129,29 +147,25 @@ public class Library {
     /**
      * Sets the value of the librarian property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link Librarian }
-     *
+     * @param value allowed object is
+     *              {@link Librarian }
      */
     public void setLibrarian(Librarian value) {
         this.librarian = value;
     }
 
     /**
-     * Gets the value of the subscribers property.
+     * Gets the value of the subscribers' property.
      *
-     * @return
-     *     possible object is
-     *     {@link Subscribers }
-     *
+     * @return possible object is
+     * {@link Subscribers }
      */
     public Subscribers getSubscribers() {
         return subscribers;
     }
 
     /**
-     * Sets the value of the subscribers property.
+     * Sets the value of the subscribers' property.
      *
      * @param value allowed object is
      *              {@link Subscribers }
@@ -163,13 +177,12 @@ public class Library {
     @Override
     public boolean equals(Object o) {
 
-        if (this == o)
-            return true;
-        if (!(o instanceof Library))
-            return false;
-        Library library = (Library) o;
-        return Objects.equals(this.id, library.id) && Objects.equals(this.libraryName, library.libraryName)
-                && Objects.equals(this.libraryAddress, library.libraryAddress) && Objects.equals(this.workHours, library.workHours);
+        if (this == o) return true;
+        if (!(o instanceof Library library)) return false;
+        return Objects.equals(this.id, library.id)
+                && Objects.equals(this.libraryName, library.libraryName)
+                && Objects.equals(this.libraryAddress, library.libraryAddress)
+                && Objects.equals(this.workHours, library.workHours);
     }
 
     @Override
@@ -179,6 +192,10 @@ public class Library {
 
     @Override
     public String toString() {
-        return "Library{" + "id=" + this.id + ", name='" + this.libraryName + '\'' + ", address='" + this.libraryAddress + '\'' + ", hours='" + this.workHours + '\'' + '}';
+        return "Library{"
+                + "id=" + this.id
+                + ", name='" + this.libraryName + '\''
+                + ", address='" + this.libraryAddress + '\''
+                + ", hours='" + this.workHours + '\'' + '}';
     }
 }
