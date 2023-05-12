@@ -7,6 +7,8 @@ import lt.viko.eif.gmauza.librarymanagementrest.LibraryNotFoundException;
 import lt.viko.eif.gmauza.librarymanagementrest.models.Library;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.IanaLinkRelations;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,8 +44,12 @@ public class LibraryController {
 
 
     @PostMapping("/libraries")
-    Library newLibrary(@RequestBody Library newLibrary) {
-        return repository.save(newLibrary);
+    ResponseEntity<?> newLibrary(@RequestBody Library newLibrary) {
+        EntityModel<Library> entityModel = assembler.toModel(repository.save(newLibrary));
+
+        return ResponseEntity //
+                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()) //
+                .body(entityModel);
     }
 
     // Single item
@@ -59,23 +65,30 @@ public class LibraryController {
     }
 
     @PutMapping("/libraries/{id}")
-    Library replaceLibrary(@RequestBody Library newLibrary, @PathVariable Long id) {
+    ResponseEntity<?> replaceLibrary(@RequestBody Library newLibrary, @PathVariable Long id) {
 
-        return repository.findById(id)
-                .map(Library -> {
-                    Library.setLibraryName(newLibrary.getLibraryName());
-                    Library.setLibraryAddress(newLibrary.getLibraryAddress());
-                    Library.setWorkHours(newLibrary.getWorkHours());
-                    return repository.save(Library);
-                })
+        Library updatedLibrary = repository.findById(id) //
+                .map(library -> {
+                    library.setLibraryName(newLibrary.getLibraryName());
+                    library.setLibraryAddress(newLibrary.getLibraryAddress());
+                    library.setWorkHours(newLibrary.getWorkHours());
+                    return repository.save(library);
+                }) //
                 .orElseGet(() -> {
                     newLibrary.setId(id);
                     return repository.save(newLibrary);
                 });
+
+        EntityModel<Library> entityModel = assembler.toModel(updatedLibrary);
+
+        return ResponseEntity //
+                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()) //
+                .body(entityModel);
     }
 
     @DeleteMapping("/libraries/{id}")
-    void deleteLibrary(@PathVariable Long id) {
+    ResponseEntity<?> deleteLibrary(@PathVariable Long id) {
         repository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }
