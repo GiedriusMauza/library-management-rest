@@ -1,12 +1,20 @@
 package lt.viko.eif.gmauza.librarymanagementrest.models;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
+@Entity
 public class Borrowing {
 
-    protected int borrowingId;
+    @Id
+    @GeneratedValue
+    protected Long borrowingId;
     protected String borrowDate;
     protected String returnDate;
+    @OneToOne
     protected Item item;
 
     /**
@@ -14,10 +22,10 @@ public class Borrowing {
      * 
      * @return
      *     possible object is
-     *     {@link int }
+     *     {@link Long }
      *     
      */
-    public int getBorrowingId() {
+    public Long getBorrowingId() {
         return borrowingId;
     }
 
@@ -26,10 +34,10 @@ public class Borrowing {
      * 
      * @param value
      *     allowed object is
-     *     {@link int }
+     *     {@link Long }
      *     
      */
-    public void setBorrowingId(int value) {
+    public void setBorrowingId(Long value) {
         this.borrowingId = value;
     }
 
@@ -104,5 +112,6 @@ public class Borrowing {
     public void setItem(Item value) {
         this.item = value;
     }
+
 
 }

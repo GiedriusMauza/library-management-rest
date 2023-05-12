@@ -1,8 +1,15 @@
 package lt.viko.eif.gmauza.librarymanagementrest.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Librarian {
 
-    protected int librarianId;
+    @Id
+    @GeneratedValue
+    protected Long  librarianId;
     protected String librarianEmail;
     protected String librarianName;
     protected String lastName;
@@ -13,10 +20,10 @@ public class Librarian {
      * 
      * @return
      *     possible object is
-     *     {@link int }
+     *     {@link Long }
      *     
      */
-    public int getLibrarianId() {
+    public Long getLibrarianId() {
         return librarianId;
     }
 
@@ -25,10 +32,10 @@ public class Librarian {
      * 
      * @param value
      *     allowed object is
-     *     {@link int }
+     *     {@link Long }
      *     
      */
-    public void setLibrarianId(int value) {
+    public void setLibrarianId(Long value) {
         this.librarianId = value;
     }
 

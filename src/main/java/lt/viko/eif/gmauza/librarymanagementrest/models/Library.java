@@ -1,23 +1,23 @@
 package lt.viko.eif.gmauza.librarymanagementrest.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
 @Entity
 public class Library {
 
-
-    private @Id @GeneratedValue Long id;
+    @Id @GeneratedValue
+    private Long id;
     private String libraryAddress;
     private String libraryName;
     private String workHours;
 
-/*    private Librarian librarian;
+    @OneToOne
+    private Librarian librarian;
 
-    private Subscribers subscribers;*/
+    @OneToOne
+    private Subscribers subscribers;
 
 
 
@@ -108,54 +108,52 @@ public class Library {
     public void setWorkHours(String value) {
         this.workHours = value;
     }
-    /*
-     *//**
+    /**
      * Gets the value of the librarian property.
      *
      * @return
      *     possible object is
      *     {@link Librarian }
      *
-     *//*
+     */
     public Librarian getLibrarian() {
         return librarian;
     }
 
-    *//**
+    /**
      * Sets the value of the librarian property.
      *
      * @param value
      *     allowed object is
      *     {@link Librarian }
      *
-     *//*
+     */
     public void setLibrarian(Librarian value) {
         this.librarian = value;
     }
 
-    *//**
+    /**
      * Gets the value of the subscribers property.
      *
      * @return
      *     possible object is
      *     {@link Subscribers }
      *
-     *//*
+     */
     public Subscribers getSubscribers() {
         return subscribers;
     }
-
-    */
 
     /**
      * Sets the value of the subscribers property.
      *
      * @param value allowed object is
      *              {@link Subscribers }
-     *//*
+     */
     public void setSubscribers(Subscribers value) {
         this.subscribers = value;
-    }*/
+    }
+
     @Override
     public boolean equals(Object o) {
 

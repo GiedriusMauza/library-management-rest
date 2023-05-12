@@ -1,8 +1,15 @@
 package lt.viko.eif.gmauza.librarymanagementrest.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Item {
 
-    protected int itemId;
+    @Id
+    @GeneratedValue
+    protected Long itemId;
     protected String author;
     protected String copiesNumber;
     protected String productionYear;
@@ -15,10 +22,10 @@ public class Item {
      * 
      * @return
      *     possible object is
-     *     {@link int }
+     *     {@link Long }
      *     
      */
-    public int getItemId() {
+    public Long getItemId() {
         return itemId;
     }
 
@@ -27,10 +34,10 @@ public class Item {
      * 
      * @param value
      *     allowed object is
-     *     {@link int }
+     *     {@link Long }
      *     
      */
-    public void setItemId(int value) {
+    public void setItemId(Long value) {
         this.itemId = value;
     }
 

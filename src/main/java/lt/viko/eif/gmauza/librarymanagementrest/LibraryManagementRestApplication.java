@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
 @EntityScan(basePackages = {"lt.viko.eif.gmauza.librarymanagementrest.models"})
+//@ComponentScan(basePackages = {"lt.viko.eif.gmauza.librarymanagementrest.controllers"})
 public class LibraryManagementRestApplication {
 
 	public static void main(String... args) {

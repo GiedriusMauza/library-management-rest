@@ -1,11 +1,23 @@
 package lt.viko.eif.gmauza.librarymanagementrest.models;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Borrowings {
 
+    @OneToMany
     protected List<Borrowing> borrowing;
+
+    @Id
+    @GeneratedValue
+    private Long id;
 
     /**
      * Gets the value of the borrowing property.
@@ -36,4 +48,11 @@ public class Borrowings {
         return this.borrowing;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }

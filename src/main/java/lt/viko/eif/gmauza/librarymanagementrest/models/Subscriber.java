@@ -1,13 +1,22 @@
 package lt.viko.eif.gmauza.librarymanagementrest.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+
+@Entity
 public class Subscriber {
 
-    protected int subscriberId;
+    @Id
+    @GeneratedValue
+    protected Long subscriberId;
     protected String subscriberName;
     protected String subscriberLastName;
     protected String address;
     protected String email;
     protected String phone;
+    @OneToOne
     protected Borrowings borrowings;
 
     /**
@@ -15,10 +24,10 @@ public class Subscriber {
      * 
      * @return
      *     possible object is
-     *     {@link int }
+     *     {@link Long }
      *     
      */
-    public int getSubscriberId() {
+    public Long getSubscriberId() {
         return subscriberId;
     }
 
@@ -27,10 +36,10 @@ public class Subscriber {
      * 
      * @param value
      *     allowed object is
-     *     {@link int }
+     *     {@link Long }
      *     
      */
-    public void setSubscriberId(int value) {
+    public void setSubscriberId(Long value) {
         this.subscriberId = value;
     }
 
@@ -177,5 +186,6 @@ public class Subscriber {
     public void setBorrowings(Borrowings value) {
         this.borrowings = value;
     }
+
 
 }

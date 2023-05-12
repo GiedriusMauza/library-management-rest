@@ -1,11 +1,21 @@
 package lt.viko.eif.gmauza.librarymanagementrest.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Subscribers {
 
+    @OneToMany
     protected List<Subscriber> subscriber;
+
+    @Id @GeneratedValue
+    private Long id;
 
     /**
      * Gets the value of the subscriber property.
@@ -36,4 +46,11 @@ public class Subscribers {
         return this.subscriber;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
