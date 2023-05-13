@@ -1,11 +1,14 @@
 package lt.viko.eif.gmauza.librarymanagementrest.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.springframework.hateoas.RepresentationModel;
 
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-public class Library {
+public class Library extends RepresentationModel<Library> {
 
     @Id
     @GeneratedValue
@@ -33,6 +36,13 @@ public class Library {
         this.workHours = workHours;
         this.librarian = librarian;
         this.subscribers = subscribers;
+    }
+
+    public Library(String libraryName, String libraryAddress, String workHours, Librarian librarian) {
+        this.libraryName = libraryName;
+        this.libraryAddress = libraryAddress;
+        this.workHours = workHours;
+        this.librarian = librarian;
     }
 
     /**
@@ -198,4 +208,5 @@ public class Library {
                 + ", address='" + this.libraryAddress + '\''
                 + ", hours='" + this.workHours + '\'' + '}';
     }
+
 }

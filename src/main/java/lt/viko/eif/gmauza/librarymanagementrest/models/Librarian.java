@@ -3,9 +3,12 @@ package lt.viko.eif.gmauza.librarymanagementrest.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import org.springframework.hateoas.RepresentationModel;
+
+import java.util.Collection;
 
 @Entity
-public class Librarian {
+public class Librarian extends RepresentationModel<Librarian> {
 
     @Id
     @GeneratedValue
@@ -23,6 +26,9 @@ public class Librarian {
     }
 
     public Librarian() {
+    }
+
+    public Librarian(Library library) {
     }
 
     /**
@@ -144,5 +150,6 @@ public class Librarian {
     public void setPhoneNumber(String value) {
         this.phoneNumber = value;
     }
+
 
 }

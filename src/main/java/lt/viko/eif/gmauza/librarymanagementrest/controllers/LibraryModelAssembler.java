@@ -2,6 +2,7 @@ package lt.viko.eif.gmauza.librarymanagementrest.controllers;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
+import lt.viko.eif.gmauza.librarymanagementrest.models.Librarian;
 import lt.viko.eif.gmauza.librarymanagementrest.models.Library;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
@@ -18,4 +19,5 @@ class LibraryModelAssembler implements RepresentationModelAssembler<Library, Ent
                 WebMvcLinkBuilder.linkTo(methodOn(LibraryController.class).one(library.getId())).withSelfRel(),
                 linkTo(methodOn(LibraryController.class).all()).withRel("libraries"));
     }
+
 }

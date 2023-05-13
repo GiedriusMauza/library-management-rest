@@ -28,6 +28,14 @@ public class Subscriber {
         this.borrowings = borrowings;
     }
 
+    public Subscriber(String subscriberName, String subscriberLastName, String address, String email, String phone) {
+        this.subscriberName = subscriberName;
+        this.subscriberLastName = subscriberLastName;
+        this.address = address;
+        this.email = email;
+        this.phone = phone;
+    }
+
     public Subscriber() {
     }
 
