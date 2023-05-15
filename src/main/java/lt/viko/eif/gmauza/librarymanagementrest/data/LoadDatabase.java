@@ -1,7 +1,7 @@
-package lt.viko.eif.gmauza.librarymanagementrest.controllers;
+package lt.viko.eif.gmauza.librarymanagementrest.data;
 
 import lt.viko.eif.gmauza.librarymanagementrest.models.*;
-import org.apache.catalina.Store;
+import lt.viko.eif.gmauza.librarymanagementrest.repositories.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -36,14 +36,30 @@ public class LoadDatabase {
                 "Jonas Ponas");
         itemRepository.save(item);
 
+        Item item2 = new Item(
+                "Antanas",
+                "3",
+                "1999",
+                "Eridanas",
+                "true",
+                "Antano pasaka");
+        itemRepository.save(item2);
+
         Borrowing borrowing = new Borrowing(
                 "2022-12-12",
                 "2023-12-17",
                 item);
         borrowingRepository.save(borrowing);
 
+        Borrowing borrowing2 = new Borrowing(
+                "2022-10-01",
+                "2023-04-18",
+                item2);
+        borrowingRepository.save(borrowing2);
+
         Borrowings borrowings = new Borrowings();
         borrowings.getBorrowing().add(borrowing);
+        borrowings.getBorrowing().add(borrowing2);
         borrowingsRepository.save(borrowings);
 
         Subscriber subscriber = new Subscriber(
@@ -75,10 +91,6 @@ public class LoadDatabase {
 
         return args -> {
             log.info("Preloading " + repository.save(library));
-            log.info("Preloading " + repository.save(new Library("Rajono", "Paklanės g. 8", "7-18")));
-            log.info("Preloading " + repository.save(new Library("Kauno", "Kauno g. 1", "7-18")));
-            log.info("Preloading " + repository.save(new Library("Vilniaus", "Vilniaus g. 1", "7-18")));
-            log.info("Preloading " + repository.save(new Library("Klaipėda", "Klaipėda g. 1", "7-18")));
         };
     }
 }

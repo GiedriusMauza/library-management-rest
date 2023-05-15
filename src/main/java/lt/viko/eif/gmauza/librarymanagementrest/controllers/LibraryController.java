@@ -1,18 +1,15 @@
 package lt.viko.eif.gmauza.librarymanagementrest.controllers;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 import lt.viko.eif.gmauza.librarymanagementrest.LibraryNotFoundException;
 import lt.viko.eif.gmauza.librarymanagementrest.models.Librarian;
 import lt.viko.eif.gmauza.librarymanagementrest.models.Library;
+import lt.viko.eif.gmauza.librarymanagementrest.repositories.LibraryRepository;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
-import org.springframework.hateoas.Link;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,8 +43,6 @@ public class LibraryController {
 
         return CollectionModel.of(libraries, linkTo(methodOn(LibraryController.class).all()).withSelfRel());
     }
-
-
 
     @PostMapping("/libraries")
     ResponseEntity<?> newLibrary(@RequestBody Library newLibrary) {

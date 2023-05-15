@@ -1,10 +1,8 @@
 package lt.viko.eif.gmauza.librarymanagementrest.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.hateoas.RepresentationModel;
 
-import java.util.Collection;
 import java.util.Objects;
 
 @Entity
