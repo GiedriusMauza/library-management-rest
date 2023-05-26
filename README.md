@@ -1,5 +1,5 @@
 # library-management-rest
-###### Saityno paslaugų tre2ias darbas
+###### Saityno paslaugų trečias darbas
 ## Instrukcija
 #### 1. 
 #### 2. 
