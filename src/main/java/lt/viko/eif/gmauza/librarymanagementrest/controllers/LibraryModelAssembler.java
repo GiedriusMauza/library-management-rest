@@ -28,5 +28,4 @@ class LibraryModelAssembler implements RepresentationModelAssembler<Library, Ent
                 WebMvcLinkBuilder.linkTo(methodOn(LibraryController.class).one(library.getId())).withSelfRel(),
                 linkTo(methodOn(LibraryController.class).all()).withRel("libraries"));
     }
-
 }

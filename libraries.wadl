@@ -1,0 +1,58 @@
+<application xmlns="http://wadl.dev.java.net/2009/02">
+   <doc xml:lang="en" title="OpenAPI definition"/>
+   <resources base="">
+      <resource path="libraries/{id}" id="/libraries/{id}">
+         <doc xml:lang="en" title="/libraries/{id}"/>
+         <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+         <method name="GET" id="one">
+            <doc xml:lang="en" title="one"/>
+            <request/>
+            <response status="200">
+               <representation mediaType="application/yaml"/>
+            </response>
+         </method>
+         <method name="PUT" id="replaceLibrary">
+            <doc xml:lang="en" title="replaceLibrary"/>
+            <request/>
+            <response status="200">
+               <representation mediaType="application/yaml"/>
+            </response>
+         </method>
+         <method name="DELETE" id="deleteLibrary">
+            <doc xml:lang="en" title="deleteLibrary"/>
+            <request/>
+            <response status="200">
+               <representation mediaType="application/yaml"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="libraries" id="/libraries">
+         <doc xml:lang="en" title="/libraries"/>
+         <method name="GET" id="all">
+            <doc xml:lang="en" title="all"/>
+            <request/>
+            <response status="200">
+               <representation mediaType="application/yaml"/>
+            </response>
+         </method>
+         <method name="POST" id="newLibrary">
+            <doc xml:lang="en" title="newLibrary"/>
+            <request/>
+            <response status="200">
+               <representation mediaType="application/yaml"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="libraries/{id}/librarian" id="/libraries/{id}/librarian">
+         <doc xml:lang="en" title="/libraries/{id}/librarian"/>
+         <param name="id" type="xs:string" required="true" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+         <method name="GET" id="findLibrarian">
+            <doc xml:lang="en" title="findLibrarian"/>
+            <request/>
+            <response status="200">
+               <representation mediaType="application/yaml"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>
