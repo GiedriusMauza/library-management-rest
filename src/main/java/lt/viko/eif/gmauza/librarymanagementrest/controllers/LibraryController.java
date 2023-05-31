@@ -24,17 +24,31 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 
+/**
+ * The type Library controller.
+ */
 @RestController
 public class LibraryController {
 
     private final LibraryRepository repository;
     private final LibraryModelAssembler assembler;
 
+    /**
+     * Instantiates a new Library controller.
+     *
+     * @param repository the repository
+     * @param assembler  the assembler
+     */
     LibraryController(LibraryRepository repository, LibraryModelAssembler assembler) {
         this.repository = repository;
         this.assembler = assembler;
     }
 
+    /**
+     * All collection model.
+     *
+     * @return the collection model
+     */
     @GetMapping("/libraries")
     CollectionModel<EntityModel<Library>> all() {
 
@@ -45,6 +59,12 @@ public class LibraryController {
         return CollectionModel.of(libraries, linkTo(methodOn(LibraryController.class).all()).withSelfRel());
     }
 
+    /**
+     * New library response entity.
+     *
+     * @param newLibrary the new library
+     * @return the response entity
+     */
     @PostMapping("/libraries")
     ResponseEntity<?> newLibrary(@RequestBody Library newLibrary) {
         EntityModel<Library> entityModel = assembler.toModel(repository.save(newLibrary));
@@ -56,6 +76,12 @@ public class LibraryController {
 
     // Single item
 
+    /**
+     * One entity model.
+     *
+     * @param id the id
+     * @return the entity model
+     */
     @GetMapping("/libraries/{id}")
     EntityModel<Library> one(@PathVariable Long id) {
 
@@ -66,6 +92,12 @@ public class LibraryController {
 
     }
 
+    /**
+     * Find librarian response entity.
+     *
+     * @param id the id
+     * @return the response entity
+     */
     @GetMapping("/libraries/{id}/librarian")
     public ResponseEntity<EntityModel<?>> findLibrarian(@PathVariable Long id) {
         Library library = repository.findById(id)
@@ -82,6 +114,13 @@ public class LibraryController {
         return ResponseEntity.ok(librarianModel);
     }
 
+    /**
+     * Replace library response entity.
+     *
+     * @param newLibrary the new library
+     * @param id         the id
+     * @return the response entity
+     */
     @PutMapping("/libraries/{id}")
     ResponseEntity<?> replaceLibrary(@RequestBody Library newLibrary, @PathVariable Long id) {
 
@@ -104,6 +143,12 @@ public class LibraryController {
                 .body(entityModel);
     }
 
+    /**
+     * Delete library response entity.
+     *
+     * @param id the id
+     * @return the response entity
+     */
     @DeleteMapping("/libraries/{id}")
     ResponseEntity<?> deleteLibrary(@PathVariable Long id) {
         repository.deleteById(id);

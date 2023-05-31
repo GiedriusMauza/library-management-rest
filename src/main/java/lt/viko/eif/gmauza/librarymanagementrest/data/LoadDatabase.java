@@ -1,4 +1,3 @@
-/*
 package lt.viko.eif.gmauza.librarymanagementrest.data;
 
 import lt.viko.eif.gmauza.librarymanagementrest.models.*;
@@ -13,13 +12,7 @@ import org.springframework.context.annotation.Configuration;
 public class LoadDatabase {
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
-    */
-/**
-     * Initializes the database with sample data upon application startup.
-     *
-     * @param repository the repository for accessing the library data
-     * @return a CommandLineRunner for executing initialization code
-     *//*
+
 
     @Bean
     CommandLineRunner initDatabase(LibraryRepository repository,
@@ -97,4 +90,3 @@ public class LoadDatabase {
         };
     }
 }
-*/

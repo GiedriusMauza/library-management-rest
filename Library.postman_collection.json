@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "c5cda58e-fa3d-40fd-a1a1-af013d353edc",
+		"name": "Library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2277204"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/libraries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/libraries",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libraries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/libraries/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/libraries/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libraries",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/libraries/1",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"libraryAddress\": \"Kalno g. 8\",\r\n    \"libraryName\": \"Kita\",\r\n    \"workHours\": \"8-14\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/libraries/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libraries",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/libraries",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"libraryName\": \"Jurbarko\",\r\n    \"libraryAddress\": \"Paklanės g. 10\",\r\n    \"workHours\": \"8-15\",\r\n    \"librarian\": null,\r\n    \"subscribers\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/libraries",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libraries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/libraries/4",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libraries/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libraries",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/libraries/2/librarian",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libraries/2/librarian",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libraries",
+						"2",
+						"librarian"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
